@@ -16,12 +16,23 @@ const Dashboard = () => {
         </div>
         <div className="pt-10 w-full flex flex-col items-center">
           {/* this is the div for the first buttons */}
-          <div className="active:bg-slate-800 rounded-lg w-[80%] box-border py-3 pl-6">
+          <div className="rounded-lg w-[80%] flex flex-col gap-y-6 box-border py-3 pl-6">
             <Buttons text="Dashboard" icon="home" />
+            <Buttons text="Tables" icon="tables" />
+            <Buttons text="Billing" icon="billing" />
+            <Buttons text="RTL" icon="rtl" />
           </div>
         </div>
-        <div>{/* this is the div for the next title*/}</div>
-        <div>{/* this is the div for the second buttons */}</div>
+        <div className="text-white text-lg font-semibold w-full h-10 flex items-center justify-center">
+          {/* this is the div for the next title*/}
+          <h3>Account pages</h3>
+        </div>
+        <div className="rounded-lg w-[80%] flex flex-col gap-y-6 box-border py-3 pl-6">
+          {/* this is the div for the second buttons */}
+          <Buttons text="Profile" icon="profile" />
+          <Buttons text="Sign In" icon="sign in" />
+          <Buttons text="Sign Up" icon="sign up" />
+        </div>
         <div>{/* this is the div for the box picture*/}</div>
         <div>{/* this is the div for the last button*/}</div>
       </div>

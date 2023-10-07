@@ -10,38 +10,41 @@ import { HiDocument } from "react-icons/hi";
 import { AiFillStar } from "react-icons/ai";
 const Buttons = ({ text, icon }) => {
   return (
-    <Link href="/" className="flex gap-x-6 items-center w-full h-full">
+    <Link
+      href="/"
+      className="flex gap-x-4 items-center active:bg-slate-800 rounded-lg py-2 w-full justify-start pl-2"
+    >
       {/* this is the div for the react-icon */}
       {icon == "home" ? (
-        <div className="flex justify-center items-center py-3 px-2 rounded-lg text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <IoHome />
         </div>
       ) : icon == "tables" ? (
-        <div className="flex justify-center items-center py-2 px-2 rounded-xl text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <IoStatsChartSharp />
         </div>
       ) : icon == "billing" ? (
-        <div className="flex justify-center items-center py-2 px-2 rounded-xl text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <GiWallet />
         </div>
       ) : icon == "rtl" ? (
-        <div className="flex justify-center items-center py-2 px-2 rounded-xl text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <HiMiniWrench />
         </div>
       ) : icon == "profile" ? (
-        <div className="flex justify-center items-center py-2 px-2 rounded-xl text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <BsFillPersonFill />
         </div>
       ) : icon == "sign in" ? (
-        <div className="flex justify-center items-center py-2 px-2 rounded-xl text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <HiDocument />
         </div>
       ) : icon == "star" ? (
-        <div className="flex justify-center items-center py-2 px-2 rounded-xl text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <AiFillStar />
         </div>
       ) : icon == "sign up" ? (
-        <div className="flex justify-center items-center py-2 px-2 rounded-xl text-white text-xl bg-blue-600">
+        <div className="flex justify-center items-center py-[8px] px-2 rounded-xl text-white text-xl bg-blue-600">
           <IoRocketOutline />
         </div>
       ) : null}
