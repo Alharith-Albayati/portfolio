@@ -10,7 +10,7 @@ import Contactme from "@/components/Contactme";
 
 const index = () => {
   return (
-    <div className="bg-[rgb(15,22,36)] w-full">
+    <div className="bg-[rgb(15,22,36)] w-full hello">
       <Navbar />
       <Fixedbutton />
       <Hero />
