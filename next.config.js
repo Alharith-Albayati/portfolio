@@ -5,6 +5,13 @@ const nextConfig = {
 
 module.exports = {
   images: {
-    domains: ["openweathermap.org"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.weatherapi.com",
+        port: "",
+        pathname: "/weather/**/*",
+      },
+    ],
   },
 };

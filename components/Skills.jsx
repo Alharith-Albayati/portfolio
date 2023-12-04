@@ -15,10 +15,10 @@ const Skills = () => {
          gap-y-6 mt-12"
         >
           {/* this is the grid div for the Skills */}
-          <Skill Skill="Git" />
-          <Skill Skill="Github" />
+          <Skill Skill="Git & Github" />
+          <Skill Skill="React-chartjs-2" />
           <Skill Skill="Teamwork" />
-          <Skill Skill="B1 English" />
+          <Skill Skill="framer-motion" />
           <Skill Skill="Quick Learning" />
           <Skill Skill="RWD" />
           <Skill Skill="Adaptability" />

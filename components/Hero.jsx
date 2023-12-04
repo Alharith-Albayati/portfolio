@@ -15,7 +15,7 @@ const Hero = () => {
         and Tailwind CSS, backed by extensive real-world project experience and
         a relentless drive for continuous learning and problem-solving.
       </p>
-      <button className="font-Poppins text-white text-lg bg-gradient-to-br from-fuchsia-500 from-30% to-sky-500 px-8 py-4 mt-24 rounded-full mx-auto cursor-pointer shadow-[#00B2FF] shadow-button hover:shadow-blured hover:shadow-[#00B2FF] ease-in duration-300 hover:brightness-125">
+      <button className="font-Poppins text-white text-lg bg-gradient-to-br from-fuchsia-500 from-30% to-sky-500 px-8 py-4 mt-24 rounded-full mx-auto cursor-pointer shadow-[#00B2FF] shadow-button hover:shadow-blured hover:shadow-[#00B2FF] ease-in duration-300 hover:brightness-95">
         Download CV
       </button>
     </div>

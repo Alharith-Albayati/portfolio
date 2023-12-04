@@ -6,6 +6,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./DashboardComponents/**/*.{js,ts,jsx,tsx,mdx}",
     "./weatherComps/**/*.{js,jsx,ts,tsx,mdx}",
+    "./E-commerceComponents/**/*.{js,jsx,ts,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -14,9 +15,17 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        accent: "#FF8F9C",
+        blackish: "1b1b1b",
+      },
+      container: {
+        center: true,
+        padding: "15px",
+      },
       boxShadow: {
-        button: "0px 0px 30px 0px",
-        blured: "0px 0px 30px 4px",
+        button: "0px 0px 10px 0px",
+        blured: "0px 0px 15px 1px",
       },
       width: {
         begginer: "25%",

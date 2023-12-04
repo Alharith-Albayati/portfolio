@@ -1,54 +1,100 @@
 import React from "react";
+import Link from "next/link";
+import { FcGoogle } from "react-icons/fc";
 
 const Signin = () => {
   return (
-    <div className="w-full font-Poppins bg-cover h-screen bg-no-repeat bg-[url('../public/swiss.jpg')]">
-      {/* above div is the whole page and below div is the black upper layer for shadowing */}
-      <div className="w-full h-full bg-black/40 flex items-center justify-center">
-        {/* this is the shadowing div */}
-        <div className="backdrop-blur-[5px] w-[60vw] md:w-[50vw] lg:w-[40vw] h-[60vh] rounded p-4">
-          {/* this is the signing in div */}
-          <div>
-            {/* this is the bluring upper layer div */}
-            <div>
-              <form className="flex flex-col gap-y-6">
-                {/* this is the div-form for the actual signing in box */}
-                <div className="flex flex-col items-start gap-y-1 sm:w-[80%] sm:mx-auto">
-                  {/* this is the div for the email input */}
-                  <label for="email" className="text-xl text-white">
-                    Email:
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Enter your Email here"
-                    className="w-full rounded placeholder:text-lg pl-2 py-3"
-                  />
-                </div>
-                <div className="flex flex-col items-start gap-y-1 sm:w-[80%] sm:mx-auto">
-                  {/* this is the div for the Password input */}
-                  <label for="Password" className="text-xl text-white">
-                    Password:
-                  </label>
-                  <input
-                    id="Password"
-                    type="Password"
-                    placeholder="Enter your Password here"
-                    className="w-full rounded placeholder:text-lg pl-2 py-3"
-                  />
-                </div>
-                <div className="flex items-center justify-between mt-4 sm:w-[80%] sm:mx-auto">
-                  {/* this is the div for the button */}
-                  <button className="py-3 rounded text-md text-black px-6 hover:text-white ease-in duration-300 bg-white hover:bg-black">
-                    Log in
-                  </button>
-                  <button className="py-3 rounded text-md text-black px-6 hover:text-white ease-in duration-300 bg-white hover:bg-black">
-                    Sign up
-                  </button>
-                </div>
-              </form>
-            </div>
+    <div className="w-full h-screen flex items-start">
+      {/* this is the full page component */}
+      {/* this is the container for the colorful part */}
+      <div className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 w-1/2 h-screen relative">
+        <div className="font-Poppins flex flex-col absolute top-[20%] left-[10%] box-border pr-4">
+          <h1 className="font-bold text-4xl text-white my-4">
+            Turn your Ideas <br />
+            into reality{" "}
+          </h1>
+          <p className="text-xl text-white font-normal">
+            Start for free and get attractive offers from the community
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col w-1/2 h-screen box-border bg-[#f5f5f5] py-8 px-4 justify-between items-center">
+        {/* this is the div for the actual sign in part */}
+        <h1 className="text-xl font-semibold text-[#060606] lg:self-start">
+          Interactive Brand
+        </h1>
+        <div className="w-full flex flex-col box-border pt-12 max-w-[500px]">
+          {/* this is the container for the data to be entered in the fields and buttons */}
+          <div className="flex flex-col w-full mb-2 md:items-center md:justify-center">
+            {/* this is the div for login and welcome back */}
+            <h3 className="font-semibold text-3xl mb-2">Login</h3>
+            <p className="text-base mb-2">
+              Welcome Back! Please enter your details.
+            </p>
           </div>
+          <div className="w-full flex flex-col">
+            {/* this is the div for the inputs */}
+            <input
+              type="email"
+              placeholder="Enter your email please"
+              className="w-full text-black py-2 border-b my-2 border-black bg-transparent outline-none focus:outline-none"
+            />
+            <input
+              type="password"
+              placeholder="Enter your password please"
+              className="w-full text-black py-2 border-b my-2 border-black bg-transparent outline-none focus:outline-none"
+            />
+          </div>
+          <div className="flex flex-col md:flex-row gap-y-4 mt-2 md:mt-4 w-full justify-between items-center">
+            {/* this is the container for the remember me and forgot password */}
+            <div className="flex items-center">
+              <input id="checkbox" type="checkbox" className="w-4 h-4 mr-2" />
+              <label for="checkbox">
+                <p className="text-sm whitespace-nowrap">
+                  Remember me for 30 days
+                </p>
+              </label>
+            </div>
+            <p className="text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2">
+              Forgot password?
+            </p>
+          </div>
+          <div className="w-full flex flex-col my-4">
+            {/* this is the container for the buttons */}
+            <button className="w-full text-white my-2 font-semibold bg-[#060606] rounded-md p-4 text-center cursor-pointer">
+              Log in
+            </button>
+            <button className="w-full text-[#060606] my-2 font-semibold bg-white border border-black rounded-md p-4 text-center cursor-pointer">
+              Register
+            </button>
+          </div>
+          <div className="w-full flex items-center justify-between py-2 relative">
+            {/* this is the container for the or */}
+            <div className="bg-black/40 h-[1px] w-full" />
+            <p className="text-lg text-black/80 bg-[#f5f5f5] absolute left-[48%] px-1">
+              or
+            </p>
+          </div>
+          <div className="cursor-pointer">
+            {/* this is the div for the sign in with google button */}
+            <button className="w-full text-[#060606] font-semibold bg-white border my-4 border-black/40 rounded-md p-3 text-center flex items-center justify-center gap-x-4">
+              <span>
+                <FcGoogle size={30} />
+              </span>{" "}
+              Sign in with Google
+            </button>
+          </div>
+        </div>
+        <div className="w-full flex items-center justify-center">
+          <p className="text-sm font-normal text-[#060606]">
+            Don't have an account?{" "}
+            <Link
+              href="/"
+              className="font-semibold underline underline-offset-2 cursor-pointer"
+            >
+              Sign up for free
+            </Link>
+          </p>
         </div>
       </div>
     </div>

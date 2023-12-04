@@ -4,6 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
-.hello {
+body {
   overflow-x: hidden;
+}
+
+@layer components {
+  .header_top_icon_wrapper {
+    @apply bg-gray-200 rounded-md p-[6px] cursor-pointer hover:bg-accent hover:text-white;
+  }
+
+  .navbar_link:hover {
+    color: #ff8f9c;
+    transition: all 0.4s;
+  }
+
+  .navbar_link::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    scale: 0;
+    background-color: #ff8f9c;
+    transform-origin: left;
+    transition: all 0.4s;
+  }
+
+  .navbar_link:hover::after {
+    scale: 1;
+  }
 }
