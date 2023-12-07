@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.27.2",
     "chart.js": "^4.4.0",
     "faker": "^6.6.6",
     "next": "latest",
+    "next-auth": "^4.24.5",
     "react": "latest",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "latest",

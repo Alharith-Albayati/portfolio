@@ -28,10 +28,19 @@ const WeatherBox = () => {
   ]);
   const [minTemp, setMinTemp] = useState([]);
   const [maxTemp, setMaxTemp] = useState([]);
+  const [fIsClicked, setFIsClicked] = useState(false);
   function clickSearch() {
     setLocation(city.current.value);
     setIsCurrented(false);
   }
+
+  const useFahrenheit = () => {
+    setFIsClicked(true);
+  };
+
+  const useCelsius = () => {
+    setFIsClicked(false);
+  };
 
   function currentIsClicked() {
     if ("geolocation" in navigator) {
@@ -62,7 +71,7 @@ const WeatherBox = () => {
   const getCurrentLocation = async (latitude, longitude) => {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=85d1f10b1e28fa08bcb2c864fa11604f`
+        `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_CURRENT_LOCATION_API_KEY}`
       );
       if (!response.ok) {
         throw new Error(
@@ -114,7 +123,7 @@ const WeatherBox = () => {
     async function getCurrentWeather(query) {
       try {
         const res = await fetch(
-          `http://api.weatherapi.com/v1/current.json?key=c24c069d750f42d387e144638230311&q=${query}`
+          `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${query}`
         );
         if (!res.ok) {
           throw new Error("calling the weather api failed");
@@ -139,8 +148,7 @@ const WeatherBox = () => {
     async function getForecastWeather(location) {
       try {
         const response = await fetch(
-          `http://api.weatherapi.com/v1/forecast.json?key=c24c069d750f42d387e144638230311&q=${location}&days=5&aqi=no&alerts=no
-      `
+          `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
         );
         if (!response.ok) {
           throw new Error(
@@ -206,12 +214,26 @@ const WeatherBox = () => {
         </button>
       </div>
       <div
-        className={`h-[70vh] w-[90vw] sm:w-[80vw] lg:w-[50vw] mx-auto bg-[rgb(34,43,71)] rounded-lg flex flex-col items-center ${
+        className={`h-[70vh] w-[90vw] sm:w-[80vw] relative lg:w-[50vw] mx-auto bg-[rgb(34,43,71)] rounded-lg flex flex-col items-center ${
           !location && "justify-center"
         } pt-6`}
       >
         {/* this is the div for the weather info */}
         <h1 className="text-white text-4xl">{location}</h1>
+        <div className="flex absolute top-8 right-2 px-6 py-2 justify-center gap-x-2">
+          <button
+            onClick={useCelsius}
+            className="bg-indigo-500 text-violet-200 rounded-lg px-4 py-2 hover:bg-indigo-700 ease-in duration-400 text-center"
+          >
+            C
+          </button>
+          <button
+            onClick={useFahrenheit}
+            className="bg-indigo-500 text-violet-200 rounded-lg px-4 py-2 hover:bg-indigo-700 ease-in duration-400 text-center"
+          >
+            F
+          </button>
+        </div>
         {location ? (
           <>
             <div>
@@ -225,7 +247,9 @@ const WeatherBox = () => {
             </div>
             <div className="text-white text-3xl">
               {/* this is the div for the temperature */}
-              <h3>{temp} C</h3>
+              <h3>
+                {fIsClicked ? ((9 / 5) * temp + 32).toFixed(2) : temp + "C"}
+              </h3>
             </div>
             <div className="text-white text-lg">
               {/*this is the div for the day and time */}
@@ -239,111 +263,38 @@ const WeatherBox = () => {
             </div>
             <div className="flex mt-12 justify-center gap-x-12">
               {/* this is the div for the weather of the days */}
-              <div className="flex flex-col items-center">
-                {/* first weather */}
-                <div className="text-white text-lg">
-                  {/* day div */}
-                  <h4>{days[0]}</h4>
-                </div>
-                <div>
-                  {/* icon div */}
-                  <Image
-                    src={`https:${icons[0]}`}
-                    alt="weather icon"
-                    width={80}
-                    height={80}
-                  />
-                </div>
-                <div className="flex gap-x-3">
-                  {/* min-max temp div */}
-                  <p className="text-red-300 text-md">{minTemp[0]} C</p>
-                  <p className="text-green-300 text-md">{maxTemp[0]} C</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center">
-                {/* second weather */}
-                <div className="text-white text-lg">
-                  {/* day div */}
-                  <h4>{days[1]}</h4>
-                </div>
-                <div>
-                  {/* icon div */}
-                  <Image
-                    src={`https:${icons[1]}`}
-                    alt="weather icon"
-                    width={80}
-                    height={80}
-                  />
-                </div>
-                <div className="flex gap-x-3">
-                  {/* min-max temp div */}
-                  <p className="text-red-300 text-md">{minTemp[1]} C</p>
-                  <p className="text-green-300 text-md">{maxTemp[1]} C</p>
-                </div>{" "}
-              </div>
-              <div className="flex flex-col items-center">
-                {/* third weather */}
-                <div className="text-white text-lg">
-                  {/* day div */}
-                  <h4>{days[2]}</h4>
-                </div>
-                <div>
-                  {/* icon div */}
-                  <Image
-                    src={`https:${icons[2]}`}
-                    alt="weather icon"
-                    width={80}
-                    height={80}
-                  />
-                </div>
-                <div className="flex gap-x-3">
-                  {/* min-max temp div */}
-                  <p className="text-red-300 text-md">{minTemp[2]} C</p>
-                  <p className="text-green-300 text-md">{maxTemp[2]} C</p>
-                </div>{" "}
-              </div>
-              <div className="flex flex-col items-center">
-                {/* fourth weather */}
-                <div className="text-white text-lg">
-                  {/* day div */}
-                  <h4>{days[3]}</h4>
-                </div>
-                <div>
-                  {/* icon div */}
-                  <Image
-                    src={`https:${icons[3]}`}
-                    alt="weather icon"
-                    width={80}
-                    height={80}
-                  />
-                </div>
-                <div className="flex gap-x-3">
-                  {/* min-max temp div */}
-                  <p className="text-red-300 text-md">{minTemp[3]} C</p>
-                  <p className="text-green-300 text-md">{maxTemp[3]} C</p>
-                </div>{" "}
-              </div>
-              <div className="flex flex-col items-center">
-                {/* fifth weather */}
-                <div className="text-white text-lg">
-                  {/* day div */}
-                  <h4>{days[4]}</h4>
-                </div>
-                <div>
-                  {/* icon div */}
-                  <Image
-                    src={`https:${icons[4]}`}
-                    alt="weather icon"
-                    width={80}
-                    height={80}
-                  />
-                </div>
-                <div className="flex gap-x-3">
-                  {/* min-max temp div */}
-                  <p className="text-red-300 text-md">{minTemp[4]} C</p>
-                  <p className="text-green-300 text-md">{maxTemp[4]} C</p>
-                </div>{" "}
-              </div>
+              {[0, 1, 2, 3, 4].map((num, index) => {
+                return (
+                  <div key={index} className="flex flex-col items-center">
+                    <div className="text-white text-lg">
+                      {/* day div */}
+                      <h4>{days[num]}</h4>
+                    </div>
+                    <div>
+                      {/* icon div */}
+                      <Image
+                        src={`https:${icons[num]}`}
+                        alt="weather icon"
+                        width={80}
+                        height={80}
+                      />
+                    </div>
+                    <div className="flex gap-x-3">
+                      {/* min-max temp div */}
+                      <p className="text-red-300 text-md">
+                        {fIsClicked
+                          ? ((9 / 5) * minTemp[num] + 32).toFixed(2) + "F"
+                          : minTemp[num] + "C"}
+                      </p>
+                      <p className="text-green-300 text-md">
+                        {fIsClicked
+                          ? ((9 / 5) * maxTemp[num] + 32).toFixed(2) + "F"
+                          : maxTemp[num] + "C"}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </>
         ) : (

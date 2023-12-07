@@ -17,15 +17,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
-    "/Dashboard": [
+    "/Weather": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/Dashboard.js"
-    ],
-    "/Signin": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Signin.js"
+      "static/chunks/pages/Weather.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

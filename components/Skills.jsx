@@ -16,9 +16,9 @@ const Skills = () => {
         >
           {/* this is the grid div for the Skills */}
           <Skill Skill="Git & Github" />
-          <Skill Skill="React-chartjs-2" />
+          <Skill Skill="Helpful Libraries" />
           <Skill Skill="Teamwork" />
-          <Skill Skill="framer-motion" />
+          <Skill Skill="" />
           <Skill Skill="Quick Learning" />
           <Skill Skill="RWD" />
           <Skill Skill="Adaptability" />
