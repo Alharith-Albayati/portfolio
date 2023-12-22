@@ -6,7 +6,7 @@ const Skills = () => {
     <>
       <div className="w-full">
         {/* this is the main div */}
-        <div className="text-white font-Poppins sm:text-3xl mx-auto text-[27px] w-fit whitespace-nowrap">
+        <div className="text-white font-Poppins sm:text-3xl mx-auto text-xl w-fit whitespace-nowrap">
           {/* this is the div for the header */}
           <h1>Additional Technologies and Skills</h1>
         </div>
