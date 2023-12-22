@@ -192,7 +192,7 @@ const WeatherBox = () => {
 
   return (
     <>
-      <div className="h-24 w-fit mx-auto mb-4 bg-transparent flex items-center gap-x-2">
+      <div className="h-24 w-fit mx-auto mb-4 bg-transparent  flex items-center gap-x-2">
         {/* this is the div for the input and buttons */}
         <input
           ref={city}
@@ -248,7 +248,9 @@ const WeatherBox = () => {
             <div className="text-white text-3xl">
               {/* this is the div for the temperature */}
               <h3>
-                {fIsClicked ? ((9 / 5) * temp + 32).toFixed(2) : temp + "C"}
+                {fIsClicked
+                  ? ((9 / 5) * temp + 32).toFixed(2) + "F"
+                  : temp + "C"}
               </h3>
             </div>
             <div className="text-white text-lg">
@@ -298,7 +300,7 @@ const WeatherBox = () => {
             </div>
           </>
         ) : (
-          <h1 className="text-white text-3xl ">
+          <h1 className="text-white text-3xl absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
             No Data... please specify a valid location
           </h1>
         )}

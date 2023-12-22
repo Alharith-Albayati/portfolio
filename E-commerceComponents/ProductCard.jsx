@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { popupContext } from "../pages/Ecommerce";
+import { useContext } from "react";
 
 const generateRating = (rating) => {
   switch (rating) {
@@ -61,8 +63,13 @@ const generateRating = (rating) => {
 };
 
 const ProductCard = (props) => {
+  const openPopup = useContext(popupContext);
+  const { popup } = openPopup;
   return (
-    <div className="px-4 max-w-[400px] border border-gray-200 rounded-xl">
+    <div
+      onClick={popup}
+      className="px-4 cursor-pointer max-w-[400px] border border-gray-200 rounded-xl"
+    >
       <div>
         <Image
           className="w-full h-auto"

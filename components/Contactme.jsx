@@ -25,7 +25,9 @@ const Contactme = () => {
       </div>
       <div className="flex items-start gap-x-4 text-blue-400 text-[4vw] sm:text-[3vw] md:text-[2.5vw] lg:text-[2vw] cursor-pointer">
         {/* this is the icons div on the right */}
-        <BsLinkedin />
+        <a href="https://www.linkedin.com/in/alharithalbayati" target="_blank">
+          <BsLinkedin />
+        </a>
         <BsFacebook />
         <BsInstagram />
       </div>

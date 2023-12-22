@@ -42,7 +42,12 @@ const Navbar = () => {
             <BsInstagram />
           </div>
           <div className="text-2xl text-sky-700 cursor-pointer">
-            <BsLinkedin />
+            <a
+              href="https://www.linkedin.com/in/alharithalbayati"
+              target="_blank"
+            >
+              <BsLinkedin />
+            </a>
           </div>
         </div>
       </nav>
@@ -75,7 +80,12 @@ const Navbar = () => {
               <BsInstagram />
             </div>
             <div className="text-3xl cursor-pointer">
-              <BsLinkedin />
+              <a
+                href="https://www.linkedin.com/in/alharithalbayati"
+                target="_blank"
+              >
+                <BsLinkedin />
+              </a>
             </div>
           </div>
         </div>

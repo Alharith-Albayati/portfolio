@@ -17,13 +17,13 @@ const Skills = () => {
           {/* this is the grid div for the Skills */}
           <Skill Skill="Git & Github" />
           <Skill Skill="Helpful Libraries" />
-          <Skill Skill="Teamwork" />
-          <Skill Skill="" />
+          <Skill Skill="Good English" />
           <Skill Skill="Quick Learning" />
           <Skill Skill="RWD" />
-          <Skill Skill="Adaptability" />
+          <Skill Skill="Continuous Learning" />
           <Skill Skill="Time Management" />
           <Skill Skill="Problem Solving" />
+          <Skill Skill="Asynchronous & API" />
         </div>
       </div>
     </>

@@ -17,6 +17,26 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
+    "/Customers": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Customers.js"
+    ],
+    "/Dashboard": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Dashboard.js"
+    ],
+    "/Orders": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Orders.js"
+    ],
+    "/Signin": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/Signin.js"
+    ],
     "/Weather": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
