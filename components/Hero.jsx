@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="w-full flex flex-col items-center mt-12 h-[90vh]">
       <h1 className="font-Poppins whitespace-nowrap font-600 text-[25px] sm:text-[30px] lg:text-[55px] bg-gradient-to-r from-fuchsia-500 to-sky-700 bg-clip-text text-transparent">
-        Hello, I'm Alharith,
+        Hello, I&apos;m Alharith,
       </h1>
       <h1 className="font-Poppins whitespace-nowrap font-600 text-[25px] sm:text-[30px] lg:text-[55px] text-white">
         front-end developer

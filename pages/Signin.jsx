@@ -87,7 +87,7 @@ const Signin = () => {
         </div>
         <div className="w-full flex items-center justify-center">
           <p className="text-sm font-normal text-[#060606]">
-            Don't have an account?{" "}
+            Don&apos;t have an account?
             <Link
               href="/"
               className="font-semibold underline underline-offset-2 cursor-pointer"

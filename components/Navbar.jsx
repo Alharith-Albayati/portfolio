@@ -19,7 +19,7 @@ const Navbar = () => {
           <MenuIcon open={open} click={click} />
         </div>
         <div className="text-white text-xl relative left-[2vw] md:text-lg">
-          <h1>Alharith's Portfolio</h1>
+          <h1>Alharith&apos;s Portfolio</h1>
         </div>
         <div className="flex items-center gap-x-6 text-sm max-md:hidden lg:gap-x-12 w-fit">
           {/* this is the div for id links */}

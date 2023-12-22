@@ -54,11 +54,11 @@ const Aboutme = () => {
       <div className="text-white font-Poppins justify-center text-[15px] mt-6 flex flex-col">
         {/* this is the main about me div */}
         <p className="w-[80vw] text-justify mx-auto">
-          Hello! I'm Alharith, a passionate and dedicated front-end developer
-          with a strong foundation in HTML, CSS, and JavaScript. My journey
-          began with a hunger for learning, and it has taken me on an exciting
-          path through various technologies and frameworks. Here's a glimpse of
-          my journey so far:
+          Hello! I&apos;m Alharith, a passionate and dedicated front-end
+          developer with a strong foundation in HTML, CSS, and JavaScript. My
+          journey began with a hunger for learning, and it has taken me on an
+          exciting path through various technologies and frameworks. Here&apos;s
+          a glimpse of my journey so far:
         </p>
         <div className="w-[80vw] px-16 box-border relative flex items-center mx-auto mt-8 bg-gradient-to-r from-fuchsia-500 to-sky-700 p-8 rounded-lg">
           {/* this is the dynamic about me div */}
@@ -89,9 +89,9 @@ const Aboutme = () => {
         <br className="mt-10" />
         <div className="w-[80vw] text-justify mt-10 mx-auto">
           {/* this is the consclusion div */}
-          I'm excited to embark on this journey as a front-end developer and am
-          actively seeking opportunities to apply my skills, learn from
-          experienced mentors, and contribute to innovative projects. Let's
+          I&apos;m excited to embark on this journey as a front-end developer
+          and am actively seeking opportunities to apply my skills, learn from
+          experienced mentors, and contribute to innovative projects. Let&apos;s
           connect, collaborate, and create exceptional web experiences together.
         </div>
       </div>
