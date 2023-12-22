@@ -52,7 +52,7 @@ const Navbar = () => {
         </div>
       </nav>
       <div
-        className={`bg-gradient-to-r from-fuchsia-500 to-sky-700 w-fit px-10 h-[90vh] z-30 absolute top-0 right-0 rounded-l-lg ${
+        className={`bg-gradient-to-r from-fuchsia-500 to-sky-700 w-fit px-10 h-screen z-30 absolute top-0 right-0 rounded-l-lg ${
           open ? "translate-x-0" : "translate-x-full"
         } ease-out duration-400 transition`}
       >
