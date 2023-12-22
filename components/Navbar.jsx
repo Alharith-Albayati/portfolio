@@ -15,7 +15,11 @@ const Navbar = () => {
         id="top"
         className="w-full flex items-center h-[87px] font-Poppins justify-between"
       >
-        <div className="absolute top-5 right-4 cursor-pointer md:hidden z-40">
+        <div
+          className={`top-5 right-4 ${
+            open ? "fixed" : "absolute"
+          } cursor-pointer md:hidden z-40`}
+        >
           <MenuIcon open={open} click={click} />
         </div>
         <div className="text-white text-xl relative left-[2vw] md:text-lg">
@@ -52,7 +56,7 @@ const Navbar = () => {
         </div>
       </nav>
       <div
-        className={`bg-gradient-to-r from-fuchsia-500 to-sky-700 w-fit px-10 h-screen z-30 absolute top-0 right-0 rounded-l-lg ${
+        className={`bg-gradient-to-r from-fuchsia-500 to-sky-700 w-[60vw] px-10 h-screen z-30 fixed top-0 right-0 rounded-l-lg ${
           open ? "translate-x-0" : "translate-x-full"
         } ease-out duration-400 transition`}
       >
