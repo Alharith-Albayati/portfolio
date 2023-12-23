@@ -6,19 +6,19 @@ const Signin = () => {
   return (
     <div className="w-full h-screen flex items-start">
       {/* this is the full page component */}
-      {/* this is the container for the colorful part */}
-      <div className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 w-1/2 h-screen relative">
-        <div className="font-Poppins flex flex-col absolute top-[20%] left-[10%] box-border pr-4">
+      <div className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 w-1/2 h-screen hidden sm:block">
+        {/* this is the container for the colorful part */}
+        <div className="font-Poppins flex flex-col absolute w-full top-[20%] md:left-[10%] lg:left-[3%] left-[5%] box-border pr-4">
           <h1 className="font-bold text-4xl text-white my-4">
             Turn your Ideas <br />
             into reality{" "}
           </h1>
-          <p className="text-xl text-white font-normal">
+          <p className="text-xl text-white font-normal w-[250px] xl:w-fit">
             Start for free and get attractive offers from the community
           </p>
         </div>
       </div>
-      <div className="flex flex-col w-1/2 h-screen box-border bg-[#f5f5f5] py-8 px-4 justify-between items-center">
+      <div className="flex flex-col sm:w-1/2 h-screen box-border bg-[#f5f5f5] py-8 px-4 justify-between items-center w-full">
         {/* this is the div for the actual sign in part */}
         <h1 className="text-xl font-semibold text-[#060606] lg:self-start">
           Interactive Brand
@@ -49,7 +49,7 @@ const Signin = () => {
             {/* this is the container for the remember me and forgot password */}
             <div className="flex items-center">
               <input id="checkbox" type="checkbox" className="w-4 h-4 mr-2" />
-              <label for="checkbox">
+              <label htmlFor="checkbox">
                 <p className="text-sm whitespace-nowrap">
                   Remember me for 30 days
                 </p>
