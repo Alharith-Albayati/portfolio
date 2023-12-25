@@ -22,7 +22,7 @@ const Project = ({ info }) => {
           />
         </div>
         <div className="bg-gradient-to-r from-fuchsia-500 to-cyan-500 py-2 px-8 text-xl mx-auto relative bottom-3 cursor-pointer w-fit h-fit text-center rounded-xl">
-          <Link href="/">Live Show</Link>
+          <Link href={info.sitePath}>Live Show</Link>
         </div>
       </div>
     </div>

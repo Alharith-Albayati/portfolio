@@ -192,7 +192,7 @@ const WeatherBox = () => {
 
   return (
     <>
-      <div className="h-24 w-fit mx-auto mb-4 bg-transparent  flex items-center gap-x-2">
+      <div className="h-24 w-fit mx-auto py-4 mb-8 bg-transparent flex max-sm:flex-col gap-y-4 items-center gap-x-2 md:gap-x-4">
         {/* this is the div for the input and buttons */}
         <input
           ref={city}
@@ -200,18 +200,21 @@ const WeatherBox = () => {
           placeholder="Enter location here..."
           className=" bg-slate-100 pl-3 py-2 placeholder-gray-500 rounded-lg focus:outline-none"
         />
-        <button
-          onClick={clickSearch}
-          className="bg-indigo-500 text-violet-200 rounded-lg px-4 py-2 hover:bg-indigo-700 ease-in duration-400"
-        >
-          Search
-        </button>
-        <button
-          onClick={currentIsClicked}
-          className="bg-indigo-500 text-violet-200 rounded-lg px-4 py-2 hover:bg-indigo-700 ease-in duration-400"
-        >
-          Current
-        </button>
+        <div className="flex items-center justify-between gap-x-4 pb-4 md:pb-0">
+          {/* this is the div containter for the search and current buttons */}
+          <button
+            onClick={clickSearch}
+            className="bg-indigo-500 text-violet-200 rounded-lg px-4 py-2 hover:bg-indigo-700 ease-in duration-400"
+          >
+            Search
+          </button>
+          <button
+            onClick={currentIsClicked}
+            className="bg-indigo-500 text-violet-200 rounded-lg px-4 py-2 hover:bg-indigo-700 ease-in duration-400"
+          >
+            Current
+          </button>
+        </div>
       </div>
       <div
         className={`h-[70vh] w-[90vw] sm:w-[80vw] relative lg:w-[50vw] mx-auto bg-[rgb(34,43,71)] rounded-lg flex flex-col items-center ${
