@@ -39,13 +39,13 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-x-6 w-fit relative right-[2vw] max-md:hidden ">
           {/* this is the div for the icons */}
-          <div className="text-2xl text-sky-700 cursor-pointer">
+          <div className="text-2xl text-blue-800 cursor-pointer">
             <BsFacebook />
           </div>
-          <div className="text-2xl text-sky-700 cursor-pointer">
+          <div className="text-2xl text-blue-800 cursor-pointer">
             <BsInstagram />
           </div>
-          <div className="text-2xl text-sky-700 cursor-pointer">
+          <div className="text-2xl text-blue-800 cursor-pointer">
             <a
               href="https://www.linkedin.com/in/alharithalbayati"
               target="_blank"
