@@ -6,9 +6,9 @@ import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  function click() {
+  const click = () => {
     setOpen(!open);
-  }
+  };
   return (
     <>
       <nav
@@ -63,7 +63,7 @@ const Navbar = () => {
         {/*this is the animated Nav*/}
         <div className="w-full h-full pt-32 pb-6 box-border flex flex-col justify-between items-center">
           {/* this is the container Nav*/}
-          <div className="flex flex-col justify-between gap-y-8 items-center">
+          <div className="flex flex-col gap-y-8 items-center">
             {/* this the div of links*/}
             <div className="font-Poppins text-white text-2xl hover:text-slate-300">
               <Link href="#Projects">Projects</Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
               <Link href="#About me">About me</Link>
             </div>
           </div>
-          <div className="flex justify-between items-center gap-6">
+          <div className="flex items-center gap-x-6">
             {/* this is the div of icons */}
             <div className="text-3xl cursor-pointer">
               <BsFacebook />

@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Skill from "./Skill";
 
 const Skills = () => {
+  const titleWidth = useRef(null);
+  const [width, setWidth] = useState(0);
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        setWidth(entry.contentRect.width);
+      });
+    });
+    resizeObserver.observe(titleWidth.current);
+    return () => {
+      resizeObserver.unobserve(titleWidth.current);
+    };
+  }, []);
   return (
     <>
-      <div className="w-full">
+      <div className="w-full flex flex-col items-center justify-start">
         {/* this is the main div */}
-        <div className="text-white font-Poppins sm:text-3xl mx-auto text-2xl w-fit whitespace-nowrap">
+        <div
+          ref={titleWidth}
+          className="text-white sm:text-3xl text-xl md:text-4xl w-fit whitespace-normal text-center"
+        >
           {/* this is the div for the header */}
           <h1>Additional Technologies and Skills</h1>
         </div>
         <div
-          className="w-fit mx-auto grid grid-cols-2 justify-center gap-x-[5vw] px-auto
-         gap-y-6 mt-12"
+          className="grid grid-cols-2 px-4 gap-y-6 mt-8"
+          style={{ width: `${width}px` }}
         >
           {/* this is the grid div for the Skills */}
           <Skill Skill="Git & Github" />

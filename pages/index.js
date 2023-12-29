@@ -17,7 +17,7 @@ const index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>My Portfolio</title>
       </Head>
-      <div className="bg-[rgb(15,22,36)] w-screen overflow-x-hidden">
+      <div className="bg-[rgb(15,22,36)] w-full font-Poppins">
         <Navbar />
         <Fixedbutton />
         <Hero />

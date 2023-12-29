@@ -48,19 +48,17 @@ const Aboutme = () => {
 
   return (
     <div className="w-full mt-20" id="About me">
-      <h1 className="font-Poppins text-white text-3xl w-fit mx-auto">
-        About me
-      </h1>
-      <div className="text-white font-Poppins justify-center text-[15px] mt-6 flex flex-col">
+      <h1 className="text-white text-3xl w-fit mx-auto">About me</h1>
+      <div className="text-white items-center justify-center text-[15px] mt-6 flex flex-col">
         {/* this is the main about me div */}
-        <p className="w-[80vw] text-justify mx-auto">
+        <p className="w-[80vw] text-justify">
           Hello! I&apos;m Alharith, a passionate and dedicated front-end
           developer with a strong foundation in HTML, CSS, and JavaScript. My
           journey began with a hunger for learning, and it has taken me on an
           exciting path through various technologies and frameworks. Here&apos;s
           a glimpse of my journey so far:
         </p>
-        <div className="w-[80vw] px-16 box-border relative flex items-center mx-auto mt-8 bg-gradient-to-r from-fuchsia-500 to-sky-700 p-8 rounded-lg">
+        <div className="w-[80vw] px-16 box-border relative flex items-center justify-center mt-8 bg-gradient-to-r from-fuchsia-500 to-sky-700 py-8 rounded-lg">
           {/* this is the dynamic about me div */}
 
           <BiSolidChevronRight
