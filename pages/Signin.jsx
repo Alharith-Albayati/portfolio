@@ -44,12 +44,12 @@ const Signin = () => {
               <input
                 type="email"
                 placeholder="Enter your email please"
-                className="w-full text-black py-2 border-b my-2 border-black bg-transparent outline-none"
+                className="w-full text-black py-2 border-b my-2 border-black bg-transparent outline-none focus:outline-none z-70"
               />
               <input
                 type="password"
                 placeholder="Enter your password please"
-                className="w-full text-black py-2 border-b my-2 border-black bg-transparent outline-none focus:outline-none"
+                className="w-full text-black py-2 border-b my-2 border-black bg-transparent outline-none focus:outline-none z-70"
               />
             </div>
             <div className="flex flex-col md:flex-row gap-y-4 mt-2 md:mt-4 w-full justify-between items-center">

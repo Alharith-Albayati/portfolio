@@ -63,13 +63,8 @@ const generateRating = (rating) => {
 };
 
 const ProductCard = (props) => {
-  const openPopup = useContext(popupContext);
-  const { popup } = openPopup;
   return (
-    <div
-      onClick={popup}
-      className="px-4 cursor-pointer max-w-[400px] border border-gray-200 rounded-xl"
-    >
+    <div className="px-4 cursor-pointer max-w-[400px] border border-gray-200 rounded-xl">
       <div>
         <Image
           className="w-full h-auto"

@@ -12,7 +12,9 @@ const Skills = () => {
     });
     resizeObserver.observe(titleWidth.current);
     return () => {
-      resizeObserver.unobserve(titleWidth.current);
+      if (React.isValidElement(titleWidth.current)) {
+        resizeObserver.unobserve(titleWidth.current);
+      }
     };
   }, []);
   return (
