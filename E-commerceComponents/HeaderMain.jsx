@@ -19,10 +19,10 @@ const HeaderMain = () => {
           <input
             type="text"
             placeholder="Enter any product name..."
-            className="border-gray-200 border w-full p-2 px-4 rounded-lg"
+            className="border-gray-200 border w-full py-2 px-4 rounded-lg"
           />
           <BsSearch
-            className="absolute top-0 right-0 mr-3 mt-3 text-gray-400 cursor-pointer"
+            className="absolute top-3 right-3 text-gray-400 cursor-pointer"
             size={20}
           />
         </div>

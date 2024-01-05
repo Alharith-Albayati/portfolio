@@ -43,7 +43,7 @@ const HeaderTop = () => {
               name="language"
             >
               <option value="English">English</option>
-              <option className="Arabic">Arabic</option>
+              <option value="Arabic">Arabic</option>
             </select>
           </div>
         </div>

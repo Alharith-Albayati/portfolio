@@ -50,7 +50,7 @@ const productsData = [
 const NewProducts = () => {
   return (
     <div>
-      <div className="pt-16 container ">
+      <div className="pt-16 container">
         <h2 className="font-medium text-2xl pb-4">New Products</h2>
         <div className="grid grid-cols-1 place-items-center sm:grid-cols-2 sm:grid-items-start lg:grid-cols-3 xl:grid-cols-4 gap-10 xl:gap-x-20 xl:gap-y-10">
           {productsData.map((item, index) => (

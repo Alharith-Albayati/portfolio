@@ -17,7 +17,7 @@ module.exports = {
       },
       colors: {
         accent: "#FF8F9C",
-        blackish: "1b1b1b",
+        blackish: "#1b1b1b",
       },
       container: {
         center: true,
@@ -26,12 +26,6 @@ module.exports = {
       boxShadow: {
         button: "0px 0px 10px 0px",
         blured: "0px 0px 15px 1px",
-      },
-      width: {
-        begginer: "25%",
-        Intermediate: "50%",
-        Good: "75%",
-        Advanced: "100%",
       },
       keyframes: {
         bounceLeft: {

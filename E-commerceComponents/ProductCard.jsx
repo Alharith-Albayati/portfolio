@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
-import { popupContext } from "../pages/Ecommerce";
-import { useContext } from "react";
 
 const generateRating = (rating) => {
   switch (rating) {

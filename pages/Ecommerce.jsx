@@ -10,7 +10,7 @@ import Footer from "@/E-commerceComponents/Footer";
 
 const Ecommerce = () => {
   return (
-    <main className="h-fit">
+    <main className="h-fit overflow-x-hidden">
       <HeaderTop />
       <HeaderMain />
       <Navbar />
