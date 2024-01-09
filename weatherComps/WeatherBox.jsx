@@ -43,21 +43,20 @@ const WeatherBox = () => {
   };
 
   function currentIsClicked() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
+    try {
+      if (navigator.geolocation !== null) {
+        navigator.geolocation.getCurrentPosition((position) => {
           setLat(position.coords.latitude);
           setLon(position.coords.longitude);
-        },
-        (error) => {
-          console.error(
-            "this is an error happened when retrieving the current coords: ",
-            error
-          );
-        }
+          console.log("latitude: ", lat);
+          console.log("longitude: ", lon);
+        });
+      }
+    } catch (error) {
+      console.error(
+        "this is an error occured when retrieving the current coords: ",
+        error.message
       );
-    } else {
-      console.log("geolocation is not supported in this browser");
     }
 
     getCurrentLocation(lat, lon);
@@ -71,7 +70,7 @@ const WeatherBox = () => {
   const getCurrentLocation = async (latitude, longitude) => {
     try {
       const response = await fetch(
-        `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_CURRENT_LOCATION_API_KEY}`
+        `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_CURRENT_LOCATION_API_KEY}`
       );
       if (!response.ok) {
         throw new Error(
@@ -123,7 +122,7 @@ const WeatherBox = () => {
     async function getCurrentWeather(query) {
       try {
         const res = await fetch(
-          `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${query}`
+          `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${query}`
         );
         if (!res.ok) {
           throw new Error("calling the weather api failed");
@@ -140,7 +139,7 @@ const WeatherBox = () => {
       } catch (error) {
         console.error(
           "this is the error massage from the weather api: ",
-          error
+          error.message
         );
       }
     }
@@ -148,7 +147,7 @@ const WeatherBox = () => {
     async function getForecastWeather(location) {
       try {
         const response = await fetch(
-          `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
+          `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
         );
         if (!response.ok) {
           throw new Error(
