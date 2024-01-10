@@ -191,7 +191,7 @@ const WeatherBox = () => {
 
   return (
     <>
-      <div className="h-24 w-fit mx-auto py-4 mb-8 bg-transparent flex max-sm:flex-col gap-y-4 items-center gap-x-2 md:gap-x-4">
+      <div className="h-24 w-fit mx-auto py-4 mb-8 bg-transparent flex max-sm:flex-col gap-y-4 items-center gap-x-2 sm:gap-x-4">
         {/* this is the div for the input and buttons */}
         <input
           ref={city}
@@ -199,7 +199,7 @@ const WeatherBox = () => {
           placeholder="Enter location here..."
           className=" bg-slate-100 pl-3 py-2 placeholder-gray-500 rounded-lg focus:outline-none"
         />
-        <div className="flex items-center justify-between gap-x-4 pb-4 md:pb-0">
+        <div className="flex items-center justify-between gap-x-4 pb-4 sm:pb-0">
           {/* this is the div containter for the search and current buttons */}
           <button
             onClick={clickSearch}
@@ -216,13 +216,13 @@ const WeatherBox = () => {
         </div>
       </div>
       <div
-        className={`h-[70vh] w-[90vw] sm:w-[80vw] relative lg:w-[50vw] mx-auto bg-[rgb(34,43,71)] rounded-lg flex flex-col items-center ${
+        className={`min-h-[70vh] w-[90vw] sm:w-[80vw] relative lg:w-[70vw] p-12 mx-auto bg-[rgb(34,43,71)] rounded-lg flex flex-col items-center ${
           !location && "justify-center"
         } pt-6`}
       >
         {/* this is the div for the weather info */}
-        <h1 className="text-white text-4xl">{location}</h1>
-        <div className="flex absolute top-8 right-2 px-6 py-2 justify-center gap-x-2">
+        <h1 className="text-white text-2xl sm:text-3xl">{location}</h1>
+        <div className="flex absolute max-sm:flex-col top-2 right-1 px-2 py-2 items-center justify-center gap-2">
           <button
             onClick={useCelsius}
             className="bg-indigo-500 text-violet-200 rounded-lg px-4 py-2 hover:bg-indigo-700 ease-in duration-400 text-center"
@@ -259,13 +259,13 @@ const WeatherBox = () => {
               {/*this is the div for the day and time */}
               <p>{isCurrented ? currentTime : convDate}</p>
             </div>
-            <div className="text-white text-md">
+            <div className="text-white text-md flex flex-col items-center">
               {/* this is the div for the status of the weather */}
-              <p>
-                {status} | Humidity: {humidity} % | Wind: {wind} km/h
-              </p>
+              <p>Status: {status}</p>
+              <p>Humidity: {humidity} %</p>
+              <p>Wind: {wind} km/h</p>
             </div>
-            <div className="flex mt-12 justify-center gap-x-12">
+            <div className="mt-12 grid grid-cols-2 gap-16 md:grid-cols-3 lg:grid-cols-5">
               {/* this is the div for the weather of the days */}
               {[0, 1, 2, 3, 4].map((num, index) => {
                 return (

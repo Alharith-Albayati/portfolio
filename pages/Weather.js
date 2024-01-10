@@ -3,7 +3,7 @@ import WeatherBox from "@/weatherComps/WeatherBox";
 
 const Weather = () => {
   return (
-    <div className="w-full h-screen bg-[hsl(223,30%,34%)] font-Poppins">
+    <div className="w-full min-h-screen bg-[hsl(223,30%,34%)] font-Poppins">
       <WeatherBox />
     </div>
   );
