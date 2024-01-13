@@ -13,8 +13,6 @@ const WeatherBox = () => {
   const [status, setStatus] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [wind, setWind] = useState(null);
-  const [lat, setLat] = useState(null);
-  const [lon, setLon] = useState(null);
   const [currentTime, setCurrentTime] = useState(null);
   const [isCurrented, setIsCurrented] = useState(false);
   const [forecastDays, setForecastDays] = useState([]);
@@ -46,10 +44,14 @@ const WeatherBox = () => {
     try {
       if (navigator.geolocation !== null) {
         navigator.geolocation.getCurrentPosition((position) => {
-          setLat(position.coords.latitude);
-          setLon(position.coords.longitude);
-          console.log("latitude: ", lat);
-          console.log("longitude: ", lon);
+          if (position.coords.latitude && position.coords.longitude) {
+            getCurrentLocation(
+              position.coords.latitude,
+              position.coords.longitude
+            );
+          }
+          console.log(position.coords.latitude);
+          console.log(position.coords.longitude);
         });
       }
     } catch (error) {
@@ -59,7 +61,7 @@ const WeatherBox = () => {
       );
     }
 
-    getCurrentLocation(lat, lon);
+    // getCurrentLocation(lat, lon);
 
     setIsCurrented(true);
     if (isCurrented) {
@@ -155,8 +157,8 @@ const WeatherBox = () => {
           );
         }
         const resBody = await response.json();
-        const days = resBody.forecast.forecastday.map((day) => day.date);
-        setForecastDays(days);
+        const days_a_head = resBody.forecast.forecastday.map((day) => day.date);
+        setForecastDays(days_a_head);
         const abbDays = forecastDays.map((day) => Day(day));
         setDays(abbDays);
         const sevIcons = resBody.forecast.forecastday.map(
@@ -174,15 +176,13 @@ const WeatherBox = () => {
       } catch (error) {
         console.error(
           "this is the error catched for the response of the forcastWeather api: ",
-          error
+          error.message
         );
       }
     }
 
-    if (location) {
-      getCurrentWeather(location);
-      getForecastWeather(location);
-    }
+    getCurrentWeather(location);
+    getForecastWeather(location);
   }, [location]);
 
   useEffect(() => {
