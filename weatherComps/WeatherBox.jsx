@@ -9,11 +9,9 @@ const WeatherBox = () => {
     "//cdn.weatherapi.com/weather/64x64/day/266.png"
   );
   const [time, setTime] = useState(null);
-  const [convDate, setConvDate] = useState(null);
   const [status, setStatus] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [wind, setWind] = useState(null);
-  const [currentTime, setCurrentTime] = useState(null);
   const [isCurrented, setIsCurrented] = useState(false);
   const [forecastDays, setForecastDays] = useState([]);
   const [days, setDays] = useState([]);
@@ -27,9 +25,11 @@ const WeatherBox = () => {
   const [minTemp, setMinTemp] = useState([]);
   const [maxTemp, setMaxTemp] = useState([]);
   const [fIsClicked, setFIsClicked] = useState(false);
+
   function clickSearch() {
-    setLocation(city.current.value);
     setIsCurrented(false);
+    setLocation(city.current.value);
+    getDayAndTime(time);
   }
 
   const useFahrenheit = () => {
@@ -41,6 +41,7 @@ const WeatherBox = () => {
   };
 
   function currentIsClicked() {
+    setIsCurrented(true);
     try {
       if (navigator.geolocation !== null) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -50,8 +51,6 @@ const WeatherBox = () => {
               position.coords.longitude
             );
           }
-          console.log(position.coords.latitude);
-          console.log(position.coords.longitude);
         });
       }
     } catch (error) {
@@ -60,14 +59,13 @@ const WeatherBox = () => {
         error.message
       );
     }
-
-    // getCurrentLocation(lat, lon);
-
-    setIsCurrented(true);
-    if (isCurrented) {
-      getCurrentTime();
-    }
+    getCurrentTime();
   }
+
+  useEffect(() => {
+    getCurrentWeather(location);
+    getForecastWeather(location);
+  }, [location, time]);
 
   const getCurrentLocation = async (latitude, longitude) => {
     try {
@@ -108,7 +106,7 @@ const WeatherBox = () => {
       minute: "2-digit",
     };
     const formatter = new Intl.DateTimeFormat("en-US", options);
-    setCurrentTime(formatter.format(date));
+    return formatter.format(date);
   };
 
   const Day = (day) => {
@@ -120,74 +118,63 @@ const WeatherBox = () => {
     return formatter.format(date);
   };
 
-  useEffect(() => {
-    async function getCurrentWeather(query) {
-      try {
-        const res = await fetch(
-          `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${query}`
-        );
-        if (!res.ok) {
-          throw new Error("calling the weather api failed");
-        }
-        const parsedRes = await res.json();
-        setTemp(parsedRes.current.temp_c);
-        setIcon(parsedRes.current.condition.icon);
-        if (!isCurrented) {
-          setTime(parsedRes.location.localtime);
-        }
-        setStatus(parsedRes.current.condition.text);
-        setHumidity(parsedRes.current.humidity);
-        setWind(parsedRes.current.wind_kph);
-      } catch (error) {
-        console.error(
-          "this is the error massage from the weather api: ",
-          error.message
+  async function getCurrentWeather(query) {
+    try {
+      const res = await fetch(
+        `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${query}`
+      );
+      if (!res.ok) {
+        throw new Error("calling the weather api failed");
+      }
+      const parsedRes = await res.json();
+      setTemp(parsedRes.current.temp_c);
+      setIcon(parsedRes.current.condition.icon);
+      setTime(parsedRes.location.localtime);
+      setStatus(parsedRes.current.condition.text);
+      setHumidity(parsedRes.current.humidity);
+      setWind(parsedRes.current.wind_kph);
+    } catch (error) {
+      console.error(
+        "this is the error massage from the weather api: ",
+        error.message
+      );
+    }
+  }
+
+  async function getForecastWeather(location) {
+    try {
+      const response = await fetch(
+        `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
+      );
+      if (!response.ok) {
+        throw new Error(
+          "there was en error with the response of the forcast api"
         );
       }
+      const resBody = await response.json();
+      const days_a_head = resBody.forecast.forecastday.map((day) => day.date);
+      setForecastDays(days_a_head);
+      const abbDays = forecastDays.map((day) => Day(day));
+      setDays(abbDays);
+      const sevIcons = resBody.forecast.forecastday.map(
+        (icon) => icon.day.condition.icon
+      );
+      setIcons(sevIcons);
+      const min_temps = resBody.forecast.forecastday.map(
+        (day) => day.day.mintemp_c
+      );
+      setMinTemp(min_temps);
+      const max_temp = resBody.forecast.forecastday.map(
+        (day) => day.day.maxtemp_c
+      );
+      setMaxTemp(max_temp);
+    } catch (error) {
+      console.error(
+        "this is the error catched for the response of the forcastWeather api: ",
+        error.message
+      );
     }
-
-    async function getForecastWeather(location) {
-      try {
-        const response = await fetch(
-          `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${location}&days=5&aqi=no&alerts=no`
-        );
-        if (!response.ok) {
-          throw new Error(
-            "there was en error with the response of the forcast api"
-          );
-        }
-        const resBody = await response.json();
-        const days_a_head = resBody.forecast.forecastday.map((day) => day.date);
-        setForecastDays(days_a_head);
-        const abbDays = forecastDays.map((day) => Day(day));
-        setDays(abbDays);
-        const sevIcons = resBody.forecast.forecastday.map(
-          (icon) => icon.day.condition.icon
-        );
-        setIcons(sevIcons);
-        const min_temps = resBody.forecast.forecastday.map(
-          (day) => day.day.mintemp_c
-        );
-        setMinTemp(min_temps);
-        const max_temp = resBody.forecast.forecastday.map(
-          (day) => day.day.maxtemp_c
-        );
-        setMaxTemp(max_temp);
-      } catch (error) {
-        console.error(
-          "this is the error catched for the response of the forcastWeather api: ",
-          error.message
-        );
-      }
-    }
-
-    getCurrentWeather(location);
-    getForecastWeather(location);
-  }, [location]);
-
-  useEffect(() => {
-    setConvDate(getDayAndTime(time));
-  }, [time]);
+  }
 
   return (
     <>
@@ -257,7 +244,7 @@ const WeatherBox = () => {
             </div>
             <div className="text-white text-lg">
               {/*this is the div for the day and time */}
-              <p>{isCurrented ? currentTime : convDate}</p>
+              <p>{isCurrented ? getCurrentTime() : getDayAndTime(time)}</p>
             </div>
             <div className="text-white text-md flex flex-col items-center">
               {/* this is the div for the status of the weather */}
