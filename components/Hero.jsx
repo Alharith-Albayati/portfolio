@@ -15,9 +15,11 @@ const Hero = () => {
         and Tailwind CSS, backed by extensive real-world project experience and
         a relentless drive for continuous learning and problem-solving.
       </p>
-      <button className="text-white text-lg bg-gradient-to-br from-fuchsia-500 from-30% to-sky-500 px-8 py-4 mt-24 rounded-full cursor-pointer shadow-[#00B2FF] shadow-button hover:shadow-blured hover:shadow-[#00B2FF] ease-in duration-300 hover:brightness-95">
-        Download CV
-      </button>
+      <a href="/Front-End Resume 3.pdf" download="Front-End Resume.pdf">
+        <button className="text-white text-lg bg-gradient-to-br from-fuchsia-500 from-30% to-sky-500 px-8 py-4 mt-24 rounded-full cursor-pointer shadow-[#00B2FF] shadow-button hover:shadow-blured hover:shadow-[#00B2FF] ease-in duration-300 hover:brightness-95">
+          Download CV
+        </button>
+      </a>
     </div>
   );
 };
